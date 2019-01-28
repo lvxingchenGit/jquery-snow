@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>flake</title>
+</head>
+<style>
+        body {
+                background: url('http://t.qianlong.com/data/attachment/forum/201411/14/145603lfuuh02uy28otbvz.jpg') no-repeat;
+                background-size: cover;
+                overflow: hidden;
+                /* color: #d8d9db; */
+        }
+</style>
+
+<body>
+        <embed src="music.mp3" hidden="true" loop="true">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script>
+                var winWidth = $(document).width(),
+                        winHeight = $(document).height(),
+                        flake = $('<div></div>').css('position', 'absolute').html('❉'),
+                        color = "#d8d9db";
+                setInterval(function () {
+                        var fir = Math.random() * winWidth,
+                                last = Math.random() * winWidth,
+                                firOp = Math.random() * 0.3 + 0.7,
+                                lastOp = Math.random() * 0.7 + 0.3,
+                                size = Math.random() * 50 + 5,
+                                time = Math.random() * 6000 + 4000;
+                        flake.clone().appendTo('body').css({
+                                'left': fir,
+                                'top': -55,
+                                'opacity': firOp,
+                                'font-size': size,
+                                'color': color,
+                                //  'filter': blur
+                        }).animate({
+                                'left': last,
+                                'top': winHeight,
+                                'opacity': winHeight
+                        }, time, function () {
+                                $(this).remove();
+                        })
+                }, 80)
+
+        </script>
+</body>
+
+</html>
